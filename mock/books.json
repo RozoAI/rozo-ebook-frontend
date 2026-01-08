@@ -1,0 +1,103 @@
+[
+  {
+    "id": "1",
+    "title": "The Great Gatsby",
+    "author": "F. Scott Fitzgerald",
+    "thumbnail": "https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=300&h=400&fit=crop",
+    "physicalPrice": 15.99,
+    "ebookPrice": 9.99,
+    "description": "A classic American novel set in the Jazz Age, telling the story of Jay Gatsby's pursuit of the American Dream through his love for Daisy Buchanan.",
+    "category": "Fiction"
+  },
+  {
+    "id": "2",
+    "title": "1984",
+    "author": "George Orwell",
+    "thumbnail": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=400&fit=crop",
+    "physicalPrice": 14.99,
+    "ebookPrice": 8.99,
+    "description": "A dystopian social science fiction novel that follows Winston Smith, a low-ranking member of the ruling Party in Oceania, as he rebels against the Party's totalitarian rule.",
+    "category": "Fiction"
+  },
+  {
+    "id": "3",
+    "title": "To Kill a Mockingbird",
+    "author": "Harper Lee",
+    "thumbnail": "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?w=300&h=400&fit=crop",
+    "physicalPrice": 13.99,
+    "ebookPrice": 7.99,
+    "description": "A gripping tale of racial injustice and childhood innocence, told through the eyes of Scout Finch in the American South.",
+    "category": "Fiction"
+  },
+  {
+    "id": "4",
+    "title": "Pride and Prejudice",
+    "author": "Jane Austen",
+    "thumbnail": "https://images.unsplash.com/photo-1532012197267-da84d127e765?w=300&h=400&fit=crop",
+    "physicalPrice": 12.99,
+    "ebookPrice": 6.99,
+    "description": "A romantic novel that follows the character development of Elizabeth Bennet, who learns the error of making hasty judgments.",
+    "category": "Fiction"
+  },
+  {
+    "id": "5",
+    "title": "The Catcher in the Rye",
+    "author": "J.D. Salinger",
+    "thumbnail": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=400&fit=crop",
+    "physicalPrice": 11.99,
+    "ebookPrice": 5.99,
+    "description": "A controversial novel following Holden Caulfield's experiences in New York City after being expelled from prep school.",
+    "category": "Fiction"
+  },
+  {
+    "id": "6",
+    "title": "Sapiens",
+    "author": "Yuval Noah Harari",
+    "thumbnail": "https://images.unsplash.com/photo-1532619675605-1ede6c4ed2b8?w=300&h=400&fit=crop",
+    "physicalPrice": 16.99,
+    "ebookPrice": 10.99,
+    "description": "A brief history of humankind, exploring how Homo sapiens conquered the world through cognitive, agricultural, and scientific revolutions.",
+    "category": "Non-Fiction"
+  },
+  {
+    "id": "7",
+    "title": "The Silent Patient",
+    "author": "Alex Michaelides",
+    "thumbnail": "https://images.unsplash.com/photo-1543002588-bfa74002ed7e?w=300&h=400&fit=crop",
+    "physicalPrice": 17.99,
+    "ebookPrice": 11.99,
+    "description": "A psychological thriller about a woman who refuses to speak after allegedly murdering her husband.",
+    "category": "Mystery"
+  },
+  {
+    "id": "8",
+    "title": "Educated",
+    "author": "Tara Westover",
+    "thumbnail": "https://images.unsplash.com/photo-1532012197267-da84d127e765?w=300&h=400&fit=crop",
+    "physicalPrice": 15.99,
+    "ebookPrice": 9.99,
+    "description": "A memoir about a woman who grows up in a survivalist Mormon family and eventually goes on to earn a PhD from Cambridge University.",
+    "category": "Biography"
+  },
+  {
+    "id": "9",
+    "title": "Atomic Habits",
+    "author": "James Clear",
+    "thumbnail": "https://images.unsplash.com/photo-1532619675605-1ede6c4ed2b8?w=300&h=400&fit=crop",
+    "physicalPrice": 18.99,
+    "ebookPrice": 12.99,
+    "description": "A practical guide to building good habits and breaking bad ones through small changes that lead to remarkable results.",
+    "category": "Self-Help"
+  },
+  {
+    "id": "10",
+    "title": "Dune",
+    "author": "Frank Herbert",
+    "thumbnail": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=400&fit=crop",
+    "physicalPrice": 19.99,
+    "ebookPrice": 13.99,
+    "description": "A science fiction epic set on the desert planet Arrakis, following Paul Atreides as he navigates political intrigue and mystical forces.",
+    "category": "Science Fiction"
+  }
+]
+
