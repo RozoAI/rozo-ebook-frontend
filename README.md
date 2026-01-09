@@ -1,6 +1,6 @@
-# Roze Books - Crypto Book E-commerce
+# ROZO - Decentralized E-commerce Starting with Books
 
-A modern book e-commerce platform where users can buy physical books and e-books using cryptocurrency.
+A minimalist decentralized e-commerce platform where users can buy physical books and e-books using cryptocurrency. Save 10%+ compared to credit cards. For every punk who believes in the future of commerce.
 
 ## Features
 
@@ -55,3 +55,4 @@ All book data is stored in `/mock/books.json` as JSON files. Each book includes:
 - Description
 - Category
 
+# rozo-ebook-frontend

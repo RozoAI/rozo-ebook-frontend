@@ -54,9 +54,9 @@ export default function BooksContainer() {
           {!showRequestForm ? (
             <button
               onClick={() => setShowRequestForm(true)}
-              className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors inline-flex items-center gap-2"
+              className="bg-black text-white px-6 py-3 border-2 border-black hover:bg-white hover:text-black transition-colors inline-flex items-center gap-2 font-medium"
             >
-              <Mail size={20} />
+              <Mail size={20} strokeWidth={1.5} />
               Request This Book
             </button>
           ) : (
@@ -70,11 +70,11 @@ export default function BooksContainer() {
                 onChange={(e) => setRequestEmail(e.target.value)}
                 placeholder="Enter your email"
                 required
-                className="w-full px-4 py-2 border-2 border-gray-300 rounded-lg focus:border-blue-500 focus:outline-none"
+                className="w-full px-4 py-2 border-2 border-black focus:border-black focus:outline-none bg-white text-black"
               />
               <button
                 type="submit"
-                className="w-full bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors"
+                className="w-full bg-black text-white px-6 py-3 border-2 border-black hover:bg-white hover:text-black transition-colors font-medium"
               >
                 Get Notified When Available
               </button>
@@ -82,35 +82,35 @@ export default function BooksContainer() {
           )}
         </div>
       ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6">
           {filteredBooks.map((book) => {
             const lowestPrice = Math.min(book.physicalPrice, book.ebookPrice);
             return (
               <Link
                 key={book.id}
                 href={`/book/${book.id}`}
-                className="group bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-all transform hover:-translate-y-1"
+                className="group bg-white border border-gray-300 overflow-hidden hover:bg-black hover:text-white hover:border-black transition-all duration-200"
               >
                 <div className="relative">
                   <img
                     src={book.thumbnail}
                     alt={book.title}
-                    className="w-full h-64 object-cover group-hover:scale-105 transition-transform"
+                    className="w-full h-64 object-cover group-hover:opacity-90 transition-opacity"
                   />
                   <button
                     onClick={(e) => handleAddToCart(e, book)}
-                    className="absolute top-2 right-2 bg-blue-600 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity hover:bg-blue-700"
+                    className="absolute top-2 right-2 bg-black text-white p-2 opacity-0 group-hover:opacity-100 transition-opacity hover:bg-white hover:text-black hover:border-2 hover:border-white rounded"
                     aria-label="Add to cart"
                   >
-                    <ShoppingCart size={20} />
+                    <ShoppingCart size={18} strokeWidth={1.5} />
                   </button>
                 </div>
                 <div className="p-4">
-                  <h3 className="font-semibold text-lg mb-1 line-clamp-2 group-hover:text-blue-600 transition-colors">
+                  <h3 className="font-bold text-sm mb-1 line-clamp-2 text-black group-hover:text-white transition-colors">
                     {book.title}
                   </h3>
-                  <p className="text-gray-600 text-sm mb-2">{book.author}</p>
-                  <p className="text-blue-600 font-bold text-lg">
+                  <p className="text-gray-600 text-xs mb-2 group-hover:text-gray-300 transition-colors">{book.author}</p>
+                  <p className="text-black font-black text-base group-hover:text-white transition-colors">
                     ${lowestPrice.toFixed(2)}
                   </p>
                 </div>

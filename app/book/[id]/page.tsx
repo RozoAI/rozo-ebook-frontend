@@ -24,7 +24,7 @@ export default function BookDetailPage() {
 
   if (!book) {
     return (
-      <div className="min-h-screen bg-gray-50">
+      <div className="min-h-screen bg-white">
         <Header />
         <div className="container mx-auto px-4 py-12 text-center">
           <p className="text-xl text-gray-600">Book not found</p>
@@ -46,28 +46,28 @@ export default function BookDetailPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-white">
       <Header />
       <div className="container mx-auto px-4 py-8">
-        <div className="bg-white rounded-lg shadow-lg p-8">
+        <div className="bg-white border border-black p-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
             {/* Book Photo */}
             <div className="flex justify-center items-start">
               <img
                 src={book.thumbnail}
                 alt={book.title}
-                className="w-full max-w-md h-auto rounded-lg shadow-md"
+                className="w-full max-w-md h-auto border border-black"
               />
             </div>
 
             {/* Book Info */}
             <div className="space-y-6">
               <div>
-                <h1 className="text-4xl font-bold text-gray-800 mb-2">
+                <h1 className="text-4xl font-black text-black mb-2 tracking-tight">
                   {book.title}
                 </h1>
-                <p className="text-2xl text-gray-600 mb-4">by {book.author}</p>
-                <p className="text-gray-500">{book.category}</p>
+                <p className="text-2xl text-gray-600 mb-4 font-light">by {book.author}</p>
+                <p className="text-gray-500 uppercase tracking-wide text-sm">{book.category}</p>
               </div>
 
               {/* Price Selection */}
@@ -80,11 +80,11 @@ export default function BookDetailPage() {
                       value="physical"
                       checked={selectedFormat === 'physical'}
                       onChange={(e) => setSelectedFormat(e.target.value as 'physical')}
-                      className="w-5 h-5 text-blue-600"
+                      className="w-5 h-5 text-black border-black focus:ring-black"
                     />
                     <div>
-                      <span className="font-semibold text-lg">Physical Book</span>
-                      <p className="text-2xl font-bold text-blue-600">
+                      <span className="font-bold text-lg text-black">Physical Book</span>
+                      <p className="text-2xl font-black text-black">
                         ${book.physicalPrice.toFixed(2)}
                       </p>
                     </div>
@@ -99,11 +99,11 @@ export default function BookDetailPage() {
                       value="ebook"
                       checked={selectedFormat === 'ebook'}
                       onChange={(e) => setSelectedFormat(e.target.value as 'ebook')}
-                      className="w-5 h-5 text-blue-600"
+                      className="w-5 h-5 text-black border-black focus:ring-black"
                     />
                     <div>
-                      <span className="font-semibold text-lg">E-Book</span>
-                      <p className="text-2xl font-bold text-blue-600">
+                      <span className="font-bold text-lg text-black">E-Book</span>
+                      <p className="text-2xl font-black text-black">
                         ${book.ebookPrice.toFixed(2)}
                       </p>
                     </div>
@@ -114,11 +114,11 @@ export default function BookDetailPage() {
               {/* Add to Cart Button */}
               <button
                 onClick={handleAddToCart}
-                className="w-full bg-blue-600 text-white px-8 py-4 rounded-lg hover:bg-blue-700 transition-colors text-lg font-semibold flex items-center justify-center gap-2"
+                className="w-full bg-black text-white px-8 py-4 border-2 border-black hover:bg-white hover:text-black transition-colors text-lg font-bold flex items-center justify-center gap-2"
               >
                 Add to Shopping Cart
                 {totalItems > 0 && (
-                  <span className="bg-red-500 text-white text-sm font-bold rounded-full h-6 w-6 flex items-center justify-center">
+                  <span className="bg-black text-white text-sm font-bold h-6 w-6 flex items-center justify-center">
                     {totalItems}
                   </span>
                 )}
@@ -127,8 +127,8 @@ export default function BookDetailPage() {
           </div>
 
           {/* Book Description */}
-          <div className="mt-8 pt-8 border-t border-gray-200">
-            <h2 className="text-2xl font-bold text-gray-800 mb-4">
+          <div className="mt-8 pt-8 border-t border-black">
+            <h2 className="text-2xl font-bold text-black mb-4 tracking-tight uppercase">
               Book Description
             </h2>
             <p className="text-gray-700 text-lg leading-relaxed">

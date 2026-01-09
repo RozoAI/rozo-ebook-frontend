@@ -20,20 +20,21 @@ export default function SearchBar() {
   };
 
   return (
-    <form onSubmit={handleSearch} className="mb-8">
-      <div className="relative max-w-2xl mx-auto">
+    <form onSubmit={handleSearch} className="mb-12">
+      <div className="relative max-w-3xl mx-auto">
         <input
           type="text"
           value={searchQuery}
           onChange={handleInputChange}
           placeholder="Search books by title..."
-          className="w-full px-4 py-3 pl-12 pr-12 border-2 border-gray-300 rounded-lg focus:border-blue-500 focus:outline-none text-lg"
+          className="w-full px-5 py-4 pl-14 pr-14 border border-gray-300 focus:border-black focus:outline-none text-base bg-white text-black placeholder-gray-400 font-medium tracking-wide transition-colors"
         />
         <button
           type="submit"
-          className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-blue-600 transition-colors"
+          className="absolute left-4 top-1/2 -translate-y-1/2 text-black hover:opacity-60 transition-opacity"
+          aria-label="Search"
         >
-          <Search size={20} />
+          <Search size={20} strokeWidth={1.5} />
         </button>
       </div>
     </form>

@@ -8,22 +8,22 @@ export default function Header() {
   const totalItems = useCartStore((state) => state.getTotalItems());
 
   return (
-    <header className="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm">
-      <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-        <Link href="/" className="text-2xl font-bold text-blue-600">
-          Roze Books
+    <header className="sticky top-0 z-50 bg-black border-b-2 border-black">
+      <div className="container mx-auto px-6 py-5 flex justify-between items-center max-w-7xl">
+        <Link href="/" className="text-2xl md:text-3xl font-black text-white tracking-tight hover:opacity-80 transition-opacity">
+          ROZO
         </Link>
         <Link
           href="/cart"
-          className="relative flex items-center gap-2 px-4 py-2 text-gray-700 hover:text-blue-600 transition-colors"
+          className="relative flex items-center gap-2 px-4 py-2 text-white hover:opacity-70 transition-opacity group"
         >
-          <ShoppingCart size={24} />
+          <ShoppingCart size={22} strokeWidth={1.5} />
           {totalItems > 0 && (
-            <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">
+            <span className="absolute -top-1 -right-1 bg-white text-black text-xs font-black h-5 w-5 flex items-center justify-center">
               {totalItems}
             </span>
           )}
-          <span className="hidden md:inline">Cart</span>
+          <span className="hidden md:inline text-sm font-medium uppercase tracking-wide">Cart</span>
         </Link>
       </div>
     </header>

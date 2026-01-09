@@ -41,7 +41,7 @@ export default function OrderConfirmationPage() {
 
   if (!orderData) {
     return (
-      <div className="min-h-screen bg-gray-50">
+      <div className="min-h-screen bg-white">
         <Header />
         <div className="container mx-auto px-4 py-12 text-center">
           <p className="text-xl text-gray-600">Loading order details...</p>
@@ -51,14 +51,14 @@ export default function OrderConfirmationPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-white">
       <Header />
       <div className="container mx-auto px-4 py-8">
-        <div className="bg-white rounded-lg shadow-lg p-8 mb-8">
+        <div className="bg-white border-2 border-black p-8 mb-8">
           <div className="text-center mb-8">
-            <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <div className="w-16 h-16 bg-black flex items-center justify-center mx-auto mb-4">
               <svg
-                className="w-8 h-8 text-green-600"
+                className="w-8 h-8 text-white"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -71,20 +71,20 @@ export default function OrderConfirmationPage() {
                 />
               </svg>
             </div>
-            <h1 className="text-4xl font-bold text-gray-800 mb-2">
+            <h1 className="text-4xl font-black text-black mb-2 tracking-tight uppercase">
               Order Confirmed!
             </h1>
-            <p className="text-xl text-gray-600">
+            <p className="text-xl text-gray-600 font-light">
               Thank you for your purchase. Your order has been received.
             </p>
           </div>
 
           {/* Order Summary */}
           <div className="mb-8">
-            <h2 className="text-2xl font-bold text-gray-800 mb-4">Order Summary</h2>
+            <h2 className="text-2xl font-black text-black mb-4 tracking-tight uppercase">Order Summary</h2>
             
             {/* Headers */}
-            <div className="bg-gray-100 rounded-lg p-4 hidden md:grid grid-cols-12 gap-4 font-semibold text-gray-700 mb-2">
+            <div className="bg-black text-white p-4 hidden md:grid grid-cols-12 gap-4 font-bold text-sm uppercase tracking-wide mb-2">
               <div className="col-span-6">Books</div>
               <div className="col-span-2">Quantity</div>
               <div className="col-span-2">Format</div>
@@ -95,35 +95,35 @@ export default function OrderConfirmationPage() {
             {orderData.items.map((item) => (
               <div
                 key={`${item.id}-${item.format}`}
-                className="border-b border-gray-200 py-4"
+                className="border-b-2 border-black py-4"
               >
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-4 items-center">
                   <div className="col-span-6 flex items-center gap-4">
                     <img
                       src={item.thumbnail}
                       alt={item.title}
-                      className="w-16 h-24 object-cover rounded"
+                      className="w-16 h-24 object-cover border border-black"
                     />
                     <div>
-                      <h3 className="font-semibold text-lg">{item.title}</h3>
-                      <p className="text-gray-600">{item.author}</p>
+                      <h3 className="font-bold text-base text-black">{item.title}</h3>
+                      <p className="text-gray-600 text-sm">{item.author}</p>
                     </div>
                   </div>
 
                   <div className="col-span-2">
-                    <span className="px-3 py-1 bg-gray-100 rounded text-center inline-block">
+                    <span className="px-3 py-1 border border-black text-center inline-block font-medium">
                       {item.quantity}
                     </span>
                   </div>
 
                   <div className="col-span-2">
-                    <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-semibold capitalize">
+                    <span className="px-3 py-1 bg-black text-white text-xs font-bold uppercase tracking-wide">
                       {item.format === 'physical' ? 'Physical' : 'E-book'}
                     </span>
                   </div>
 
                   <div className="col-span-2 text-right">
-                    <span className="font-bold text-lg">
+                    <span className="font-black text-lg text-black">
                       ${(item.price * item.quantity).toFixed(2)}
                     </span>
                   </div>
@@ -131,7 +131,7 @@ export default function OrderConfirmationPage() {
 
                 {/* Delivery Format */}
                 <div className="mt-2 text-sm text-gray-600">
-                  <strong>Delivery Format:</strong>{' '}
+                  <strong className="font-bold text-black">Delivery Format:</strong>{' '}
                   {item.format === 'physical'
                     ? `Physical copy to ${orderData.address || 'your address'}`
                     : `E-book delivered to ${orderData.email}`}
@@ -140,10 +140,10 @@ export default function OrderConfirmationPage() {
             ))}
 
             {/* Total */}
-            <div className="mt-6 pt-4 border-t-2 border-gray-300">
+            <div className="mt-6 pt-4 border-t-2 border-black">
               <div className="flex justify-between items-center">
-                <span className="text-2xl font-bold text-gray-800">Total:</span>
-                <span className="text-3xl font-bold text-blue-600">
+                <span className="text-2xl font-black text-black uppercase tracking-wide">Total:</span>
+                <span className="text-3xl font-black text-black">
                   ${orderData.totalPrice.toFixed(2)}
                 </span>
               </div>
@@ -151,34 +151,34 @@ export default function OrderConfirmationPage() {
           </div>
 
           {/* Customer Support */}
-          <div className="bg-blue-50 rounded-lg p-6 border border-blue-200">
-            <h2 className="text-2xl font-bold text-gray-800 mb-4">
+          <div className="bg-white border-2 border-black p-6">
+            <h2 className="text-2xl font-black text-black mb-4 tracking-tight uppercase">
               Customer Support
             </h2>
             <div className="space-y-3">
               <div className="flex items-center gap-3">
-                <Mail className="text-blue-600" size={20} />
+                <Mail className="text-black" size={20} strokeWidth={1.5} />
                 <div>
-                  <span className="font-semibold text-gray-700">Email: </span>
+                  <span className="font-bold text-black">Email: </span>
                   <a
-                    href="mailto:support@rozebooks.com"
-                    className="text-blue-600 hover:underline"
+                    href="mailto:support@rozo.com"
+                    className="text-black hover:opacity-70 underline font-medium"
                   >
-                    support@rozebooks.com
+                    support@rozo.com
                   </a>
                 </div>
               </div>
               <div className="flex items-center gap-3">
-                <MessageCircle className="text-blue-600" size={20} />
+                <MessageCircle className="text-black" size={20} strokeWidth={1.5} />
                 <div>
-                  <span className="font-semibold text-gray-700">Discord: </span>
+                  <span className="font-bold text-black">Discord: </span>
                   <a
-                    href="https://discord.gg/rozebooks"
+                    href="https://discord.gg/rozo"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-blue-600 hover:underline"
+                    className="text-black hover:opacity-70 underline font-medium"
                   >
-                    discord.gg/rozebooks
+                    discord.gg/rozo
                   </a>
                 </div>
               </div>
@@ -193,7 +193,7 @@ export default function OrderConfirmationPage() {
           <div className="mt-8 text-center">
             <button
               onClick={() => router.push('/')}
-              className="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors text-lg font-semibold"
+              className="bg-black text-white px-8 py-3 border-2 border-black hover:bg-white hover:text-black transition-colors text-lg font-bold uppercase tracking-wide"
             >
               Continue Shopping
             </button>
