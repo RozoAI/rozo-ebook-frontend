@@ -4,7 +4,11 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Header from '@/components/Header';
 import { useCartStore } from '@/store/cartStore';
+import { CryptoPaymentButton } from '@/components/CryptoPaymentButton';
 import { ShoppingCart, Plus, Minus, Trash2 } from 'lucide-react';
+
+// Merchant wallet address for receiving payments (Base chain)
+const MERCHANT_WALLET_ADDRESS = '0x5772FBe7a7817ef7F586215CA8b23b8dD22C8897';
 
 export default function CartPage() {
   const router = useRouter();
@@ -16,25 +20,25 @@ export default function CartPage() {
   const [email, setEmail] = useState('');
   const [address, setAddress] = useState('');
   const [phone, setPhone] = useState('');
+  const [isPaymentProcessing, setIsPaymentProcessing] = useState(false);
+  const clearCart = useCartStore((state) => state.clearCart);
 
   const hasPhysicalItems = items.some((item) => item.format === 'physical');
   const totalPrice = getTotalPrice();
 
-  const handleCheckout = (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    // Validate based on item types
-    if (hasPhysicalItems) {
-      if (!address.trim() || !phone.trim() || !email.trim()) {
-        alert('Please provide address, phone number, and email for physical books');
-        return;
-      }
-    } else {
-      if (!email.trim()) {
-        alert('Please provide your email for e-book delivery');
-        return;
-      }
-    }
+  // Validate form based on item types
+  const isFormValid = hasPhysicalItems
+    ? email.trim() && address.trim() && phone.trim()
+    : email.trim();
+
+  const handlePaymentStarted = () => {
+    setIsPaymentProcessing(true);
+    console.log('Crypto payment started');
+  };
+
+  const handlePaymentCompleted = (txHash: string) => {
+    setIsPaymentProcessing(false);
+    console.log('Payment completed with tx:', txHash);
 
     // Store order info and redirect to confirmation
     const orderData = {
@@ -43,9 +47,17 @@ export default function CartPage() {
       address: hasPhysicalItems ? address : undefined,
       phone: hasPhysicalItems ? phone : undefined,
       totalPrice,
+      txHash,
+      paymentMethod: 'crypto',
     };
     localStorage.setItem('currentOrder', JSON.stringify(orderData));
+    clearCart();
     router.push('/order-confirmation');
+  };
+
+  const handlePaymentBounced = () => {
+    setIsPaymentProcessing(false);
+    alert('Payment was bounced. Please try again.');
   };
 
   if (items.length === 0) {
@@ -152,9 +164,9 @@ export default function CartPage() {
 
           {/* Checkout Form */}
           <div className="lg:col-span-1">
-            <form onSubmit={handleCheckout} className="bg-white border border-black p-6 space-y-6 sticky top-24">
+            <div className="bg-white border border-black p-6 space-y-6 sticky top-24">
               <h2 className="text-2xl font-black text-black mb-4 tracking-tight uppercase">Checkout</h2>
-              
+
               {/* Email (Always Required) */}
               <div>
                 <label className="block text-sm font-bold text-black mb-2 uppercase tracking-wide">
@@ -211,16 +223,36 @@ export default function CartPage() {
                     ${totalPrice.toFixed(2)}
                   </span>
                 </div>
+                <p className="text-sm text-gray-600 mb-4">
+                  Pay with USDC on Base chain
+                </p>
               </div>
 
-              {/* Checkout Button */}
-              <button
-                type="submit"
-                className="w-full bg-black text-white px-6 py-4 border-2 border-black hover:bg-white hover:text-black transition-colors text-lg font-bold uppercase tracking-wide"
-              >
-                Proceed to Checkout
-              </button>
-            </form>
+              {/* Form Validation Message */}
+              {!isFormValid && (
+                <p className="text-sm text-red-600">
+                  {hasPhysicalItems
+                    ? 'Please fill in email, address, and phone number to proceed.'
+                    : 'Please enter your email to proceed.'}
+                </p>
+              )}
+
+              {/* Crypto Payment Button */}
+              <CryptoPaymentButton
+                toAddress={MERCHANT_WALLET_ADDRESS}
+                amount={totalPrice}
+                onPaymentStarted={handlePaymentStarted}
+                onPaymentCompleted={handlePaymentCompleted}
+                onPaymentBounced={handlePaymentBounced}
+                disabled={!isFormValid || isPaymentProcessing}
+              />
+
+              {isPaymentProcessing && (
+                <p className="text-sm text-center text-gray-600">
+                  Processing payment...
+                </p>
+              )}
+            </div>
           </div>
         </div>
       </div>
