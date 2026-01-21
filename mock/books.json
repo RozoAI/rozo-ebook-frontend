@@ -98,6 +98,16 @@
     "ebookPrice": 13.99,
     "description": "A science fiction epic set on the desert planet Arrakis, following Paul Atreides as he navigates political intrigue and mystical forces.",
     "category": "Science Fiction"
+  },
+  {
+    "id": "11",
+    "title": "ROZO Story",
+    "author": "ROZO Team",
+    "thumbnail": "https://miro.medium.com/v2/resize:fit:1400/format:webp/1*hAd74dkMLlDAozrmu2reKA.png",
+    "physicalPrice": 0.1,
+    "ebookPrice": 0.1,
+    "description": "The story of ROZO - a journey into the future of decentralized technology and innovation.",
+    "category": "Technology"
   }
 ]
 
